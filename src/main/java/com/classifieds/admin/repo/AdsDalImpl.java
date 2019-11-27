@@ -19,7 +19,7 @@ public class AdsDalImpl implements AdsDal {
 	@Override
 	public Ads create(Ads ads) {
 		
-		return mongo.save(ads);
+		return mongo.insert(ads);
 		
 	}
 	@Override

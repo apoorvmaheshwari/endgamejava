@@ -20,5 +20,9 @@ public interface UserDal {
 	
 
 	 void findAd(String id, String username);
+
+	String findByemailPass(String email, String password);
+
+	void findbyadid(String email, Ads a);
 }
 
