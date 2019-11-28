@@ -13,14 +13,13 @@ public class Ads {
 	private String phoneNo;
 	private Boolean statusAvail;
 	private Boolean statusFlag;
-
 	public Ads() {
 
 	}
 
-	public Ads(String category, String postTitle, int postCode, String descrip, String email, String phoneNo) {
+	public Ads(String id,String category, String postTitle, int postCode, String descrip, String email, String phoneNo) {
 		super();
-
+		this.id=id;
 		this.category = category;
 		this.postTitle = postTitle;
 		this.postCode = postCode;

@@ -17,4 +17,10 @@ public interface AdsDal {
 		
 		Ads find(String id);
 
+		void deleteAdtitle(String title);
+
+		Ads findbypostTitle(String postTitle);
+
+		Ads viewbyid(String id);
+
 }

@@ -59,7 +59,13 @@ public class UserController {
 	}
 	@GetMapping("/users/{email}")
 	public 	User findByemail(@PathVariable String email) {
+		System.out.println("getting user by email");
 		return userDal.findByemail(email);
+	}
+	@GetMapping("/userss/{email}")
+	public 	User findByemailUser(@PathVariable String email) {
+		System.out.println("getting user by email");
+		return userDal.findbyEmailuser(email);
 	}
 	@GetMapping("/users/{email}/{password}")
 	public String userPass(@PathVariable String email, @PathVariable String password) {
@@ -75,6 +81,26 @@ public class UserController {
 		System.err.println(ad);
 		System.err.println("inside updatead");
 		userDal.findbyadid(email, ad);
+	}
+	@DeleteMapping("/users/{email}/{title}")
+	public void remv(@PathVariable String email,@PathVariable String title){
+		userDal.delete(email, title);
+	}
+	@PutMapping("/users/{email}/{id}")
+	public void addingID(@PathVariable String email, @PathVariable String id) {
+		System.err.println("pu -> /users");
+		System.err.println(id);
+		System.err.println("inside updatead");
+		userDal.findbyuserId(email, id);
+	}
+	@DeleteMapping("/users/{id}")
+	public void user(@PathVariable String id) {
+		userDal.getUserByAd(id);
+	}
+	@DeleteMapping("/userss/{id}")
+	public void deleteAduser(@PathVariable String id) {
+		userDal.getUserByAd(id);
+		
 	}
 
 }

@@ -20,5 +20,8 @@ public interface AdminDal {
 	List<User> findAllUser();
 	
 	List<Ads> findAllAds();
+
+	String findByemailPass(String email, String password);
+	
 	
 }

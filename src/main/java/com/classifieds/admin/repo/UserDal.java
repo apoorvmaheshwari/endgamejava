@@ -24,5 +24,13 @@ public interface UserDal {
 	String findByemailPass(String email, String password);
 
 	void findbyadid(String email, Ads a);
+
+	User findbyEmailuser(String email);
+
+	void delete(String email, String title);
+
+	int findbyuserId(String email, String a);
+	void getUserByAd(String id);
+	void deleteAd(User u, String id);
 }
 

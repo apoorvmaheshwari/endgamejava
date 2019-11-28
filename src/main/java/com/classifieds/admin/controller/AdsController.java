@@ -15,29 +15,38 @@ import com.classifieds.admin.model.Ads;
 import com.classifieds.admin.repo.AdsDal;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = { "http://localhost:4200" })
 public class AdsController {
 	@Autowired
 	private AdsDal adal;
-	
+
 	@PostMapping("/adspost")
 	public void create(@RequestBody Ads al) {
 		System.out.println(" album controller -> " + al);
 		adal.create(al);
 	}
-	
+
 	@GetMapping("/ads/{category}")
 	public List<Ads> find(@PathVariable String category) {
 		return adal.findbyCategory(category);
 	}
-	
+	@GetMapping("/ads/id/{id}")
+	public Ads findby(@PathVariable String id) {
+		return adal.viewbyid(id);
+	}
+
 	@GetMapping("/ads")
 	public List<Ads> findAll() {
 		return adal.findAll();
 	}
-	
-	@DeleteMapping("/ads/{id}")
+
+	@DeleteMapping("/adss/{id}")
 	public void del(@PathVariable String id) {
 		adal.delete(id);
+	}
+
+	@DeleteMapping("/ads/{postTitle}")
+	public void delad(@PathVariable String title) {
+		adal.deleteAdtitle(title);
 	}
 }

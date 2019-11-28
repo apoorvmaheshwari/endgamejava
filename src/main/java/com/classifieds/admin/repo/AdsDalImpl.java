@@ -34,6 +34,11 @@ public class AdsDalImpl implements AdsDal {
 		mongo.findAndRemove(new Query(Criteria.where("id").is(id)), Ads.class);
 	}
 	@Override
+	public void deleteAdtitle(String title) {
+		// TODO Auto-generated method stub
+		mongo.findAndRemove(new Query(Criteria.where("postTitle").is(title)), Ads.class);
+	}
+	@Override
 	public List<Ads> findAll() {
 		// TODO Auto-generated method stub
 		return mongo.findAll(Ads.class);
@@ -44,6 +49,20 @@ public class AdsDalImpl implements AdsDal {
 		Query q=new Query();
 		q.addCriteria(Criteria.where("category").is(category));
 		return mongo.find(q, Ads.class);
+	}
+	@Override
+	public Ads viewbyid(String id){
+		Query q=new Query();
+		q.addCriteria(Criteria.where("_id").is(id.trim()));
+		Ads a = mongo.findById(id, Ads.class);
+		System.err.println("printing ads \n" + a + " " + id);
+		return a;
+	}
+	@Override
+	public Ads findbypostTitle(String postTitle){
+		Query q=new Query();
+		q.addCriteria(Criteria.where("postTitle").is(postTitle));
+		return mongo.findOne(q, Ads.class);
 	}
 	@Override
 	public Ads find(String id) {
